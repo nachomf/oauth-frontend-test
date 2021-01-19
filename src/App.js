@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Toggle from './Main';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <Toggle/>
       </header>
     </div>
   );
