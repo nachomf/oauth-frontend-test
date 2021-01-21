@@ -1,4 +1,5 @@
 import React from 'react';
+import Clock from './exercises/Clock';
 
 const green = '#39D1B4';
 const yellow = '#FFD712';
@@ -6,12 +7,18 @@ const yellow = '#FFD712';
 class Toggle extends React.Component {
   constructor(props){
     super(props)
-    this.state = {color: green};
+    this.state = {color: green ,
+                  isPrecise : false};
     this.changeColor = this.changeColor.bind(this);
+    this.changePrecise = this.changePrecise.bind(this);
   }
   
+  changePrecise(){
+    this.setState({ isPrecise: !this.state.isPrecise})
+  }
+
   changeColor() {
-    const newColor = this.state.color == '#39D1B4' ? '#FFD712' : '#39D1B4';
+    const newColor = this.state.color == green ? yellow : green;
     this.setState({color: newColor});
   }
 
@@ -24,6 +31,10 @@ class Toggle extends React.Component {
         <button class='btn-sm btn-primary' onClick={this.changeColor}>
           Change color
         </button>
+        <button class='btn-sm btn-primary' onClick={this.changePrecise}>
+          Toggle precise mode
+        </button>
+        <Clock isPrecise={this.state.isPrecise}/>
       </div>
     );
   }
