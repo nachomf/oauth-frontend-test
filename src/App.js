@@ -1,8 +1,9 @@
-import logo from './logo.svg';
 import Toggle from './Main';
-import { ReactLogo } from './exercises/ReactLogo';
-import { SimpleParagraph } from './exercises/SimpleParagraph';
-import Calculator from './exercises/Calculator';
+import {ReactLogo} from './component/ReactLogo';
+import {SimpleParagraph} from './component/SimpleParagraph';
+import Calculator from './component/Calculator';
+import {AccountInformation} from "./component/AccountInformation";
+import {GoogleButtonBody} from "./component/GoogleButtonBody";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <ReactLogo/>
         <SimpleParagraph text="Some Text"/>
         <Calculator/>
+        <GoogleButtonBody/>
+        <AccountInformation/>
       </header>
     </div>
   );
