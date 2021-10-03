@@ -1,13 +1,8 @@
 import React from 'react';
 
-export class AccountInformation extends React.Component{
+export class AccountInformation extends React.Component {
 
     render() {
-
-        function signOut(){
-
-        }
-
         return (
             <div className="data">
                 <p>Profile Details</p>
@@ -19,7 +14,6 @@ export class AccountInformation extends React.Component{
                     alt={"empty"}
                 />
                 <p id="email" className="alert alert-danger">Empty data</p>
-                <button onClick={signOut()} className="btn button-danger">Sign Out</button>
             </div>
         )
     }
