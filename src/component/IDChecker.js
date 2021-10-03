@@ -5,7 +5,7 @@ export class IDChecker extends React.Component {
     render() {
         return (
             <div>
-                <p className="id-checker alert alert-warning">NOT VERIFY</p>
+                <p id="id-checker" className="alert alert-warning">backend NOT VERIFY</p>
             </div>
         )
     }
