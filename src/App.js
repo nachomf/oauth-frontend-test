@@ -1,5 +1,6 @@
 import {AccountInformation} from "./component/AccountInformation";
 import {GoogleButton} from "./component/GoogleButton";
+import {IDChecker} from "./component/IDChecker";
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
                 <br/>
                 <br/>
                 <AccountInformation/>
+                <IDChecker/>
             </header>
         </div>
     );

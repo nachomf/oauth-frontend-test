@@ -9,6 +9,20 @@ export class GoogleButton extends React.Component {
         let profile = googleUser.getBasicProfile();
         $("#email").text(() => profile.getEmail());
         $("#pic").attr("src", profile.getImageUrl());
+
+        let idToken = googleUser.getAuthResponse().id_token;
+    }
+
+    checkToken(idToken){
+        //TODO continue from here
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ idToken: idToken })
+        };
+        fetch('http://localhost:4568/check-token', requestOptions)
+            .then(response => response.json())
+            .then(data => $("#id-checker").text(() => 'VERIFY'));
     }
 
     responseFailure = (error) => {
