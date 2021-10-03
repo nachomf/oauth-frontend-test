@@ -7,3 +7,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
+
+#pic {
+  border-radius: 50%;
+  margin: 20px;
+}

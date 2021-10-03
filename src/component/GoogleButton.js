@@ -8,7 +8,7 @@ export class GoogleButton extends React.Component {
         console.log(googleUser);
         let profile = googleUser.getBasicProfile();
         $("#email").text(() => profile.getEmail());
-        $("#pic").setAttribute("src", profile.getImageUrl());
+        $("#pic").attr("src", profile.getImageUrl());
     }
 
     responseFailure = (error) => {
