@@ -2,8 +2,8 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import $ from 'jquery';
 
-//const SERVER_URL = 'http://localhost:4568/check-token'
-const SERVER_URL = 'https://webhook.site/66a593f6-d791-4a22-bbb9-43b3f4f59e98'
+const SERVER_URL = 'http://localhost:4568/check-token'
+//const SERVER_URL = 'https://webhook.site/66a593f6-d791-4a22-bbb9-43b3f4f59e98'
 
 export class GoogleButton extends React.Component {
 
@@ -16,7 +16,6 @@ export class GoogleButton extends React.Component {
         let idToken = googleUser.getAuthResponse().id_token;
 
         const requestOptions = {
-            //mode: 'no-cors',
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,13 +27,20 @@ export class GoogleButton extends React.Component {
         fetch(SERVER_URL, requestOptions)
             .catch(error => console.error('Error:', error))
             .then(function (response) {
+                let checker =  $("#id-checker");
                 if (response !== undefined && response.ok) {
                     console.log('response success');
-                    $("#id-checker").text('backend VERIFY');
-                    $("#id-checker").toggleClass('alert-warning alert-success');
+                    checker.text('backend VERIFY');
+                    checker.removeClass('alert-warning');
+                    checker.removeClass('alert-danger');
+                    checker.addClass('alert-success');
 
                 } else {
                     console.log('response failed');
+                    checker.text('backend COULD NOT VERIFY');
+                    checker.removeClass('alert-warning');
+                    checker.removeClass('alert-success');
+                    checker.addClass('alert-danger');
                 }
             })
     }
